@@ -95,7 +95,11 @@ async def play(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 💬 ايدي المحادثه : {chat_id}
 🎧 طلب من : {m.from_user.mention}**
-""",                )
+""",        
+reply_markup=InlineKeyboardMarkup(   [
+                      InlineKeyboardButton("• البشمبـرمج سـافو", url=f"https://t.me/s_a_s_a_3li"),
+                      InlineKeyboardButton("• قـنـأة ألـسـوُرس", url=f"https://t.me/DEV_SAVO"),
+                  ]     )
             else:
                 await call_py.join_group_call(                    chat_id,                    AudioPiped(                        dl,                    ),                    stream_type=StreamType().pulse_stream,                )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
@@ -113,7 +117,7 @@ async def play(client, m: Message):
             await m.reply("الرد على ملف صوتي أو إعطاء شيء للبحث")
         else:
             await m.delete()
-            huehue = await m.reply("🔎 جاري البحث عزيزي ")
+            huehue = await m.reply("🔎 جاري البحث اسـتنا شـويه ")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
